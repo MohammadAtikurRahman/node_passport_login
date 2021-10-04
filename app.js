@@ -7,6 +7,17 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+//db config
+const db = require('./config/keys').MongoURI;
+
+// connect mongo 
+
+mongoose.connect(db,{ useNewUrlParser: true })
+  .then(() =>console.log('MongoDB connected...'))
+  .catch(err => console.log(err))
+;
+
+
 app.use(expressLayouts);
 app.set('view engine', 'ejs')
 
