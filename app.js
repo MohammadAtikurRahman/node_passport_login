@@ -18,7 +18,7 @@ require('./config/passport')(passport);
 
 //db config
 const db = require('./config/keys').MongoURI;
-const passport = require('./config/passport');
+// const passport = require('./config/passport');
 
 // connect mongo 
 
@@ -56,6 +56,7 @@ app.use((req, res, next) => {
 
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
   next();
 
 
